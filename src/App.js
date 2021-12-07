@@ -1,16 +1,25 @@
 import React, { Component } from "react";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Header from "./components/shared/Header";
 import FetchRandomUser from "./components/FetchRandomUser";
+import { Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 class App extends Component {
   state = {
-    visible: true
+    visible: true,
   };
 
   render() {
     return (
       <div className="App">
-        <FetchRandomUser />
+        <Header />
+        <Router>
+          <Routes>
+            <Route path="/" element={<FetchRandomUser />} />
+          </Routes>
+        </Router>
       </div>
     );
   }
